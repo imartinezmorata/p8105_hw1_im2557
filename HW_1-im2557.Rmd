@@ -1,0 +1,63 @@
+---
+title: "HW 1"
+author: 'IRENE MARTINEZ MORATA (UNI: im2557)'
+date: "9/27/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load libraries
+
+```{r , echo = FALSE}
+library(tidyverse)
+```
+
+## Problem 1 
+
+```{r Problem 1, echo=TRUE}
+set.seed(123)
+
+data1 = tibble(
+  set = rnorm(10, sd = .5), 
+  nzero = (set > 0 ),
+  character = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  levels = factor(c("green", "green", "green", "blue", "blue", "blue", "red", "red", "red", "red")))
+
+mean(pull(data1,set))
+mean(pull(data1, as.numeric(nzero)))
+mean(pull(data1, as.numeric(character)))
+mean(pull(data1, as.numeric(levels)))
+```
+The mean of the sample from the standard Normal distribution is 0.0373
+The mean of the elements greater than 0 is 0.5
+The mean of the character and factor vector cannot be determined because these are non numerical variables, and cannot be succesfully converted to numerical.
+
+
+## Problem 2
+
+```{r , echo=FALSE}
+library(palmerpenguins)
+````
+
+```{r pressure, echo=TRUE}
+data("penguins", package = "palmerpenguins")
+nrow(penguins)
+ncol(penguins)
+skimr::skim(penguins)
+
+plot1 <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+ggsave("plot1.png")
+
+````
+The penguins dataset is composed of 344 observations across 8 different variables. There are 3 categorical variables: species, island and sex; and 5 numeric variables: bill_lenght_mm, bill_depth_mm, flipper_length_mm, body_mass_g, and year. 
+The observations colleceted data on 3 different categories of species (Ade, Gen, Chi), and 3 different islands (Bis, Dre, Tor). 168 penguins were male and 165 were females.
+The mean flipper length is 201 millimeters, the mean body mass was 4202 grams, the mean bill lenght and depth were 43.9 and 17.2 millimiters respectively. 
+11 observations are missing information on sex, and 2 observations are missing information on all numeric variables except from year. 
+
+
+
+
