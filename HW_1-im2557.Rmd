@@ -2,14 +2,14 @@
 title: "HW 1"
 author: 'IRENE MARTINEZ MORATA (UNI: im2557)'
 date: "9/27/2021"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 Set up: Load Libraries
-```{r , echo= FALSE}
+```{r , echo = FALSE}
 library(tidyverse)
 ```
 
@@ -41,11 +41,11 @@ The mean of the character and factor vector cannot be determined because these a
 
 ## Problem 2
 
-```{r , echo=FALSE}
+```{r problem 2setup, echo=FALSE}
 library(palmerpenguins)
 ````
 
-```{r pressure, echo=TRUE, warning=FALSE}
+```{r problem 2.1, echo=TRUE, warning=FALSE}
 data("penguins", package = "palmerpenguins")
 nrow(penguins)
 ncol(penguins)
