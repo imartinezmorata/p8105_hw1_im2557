@@ -8,16 +8,14 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## Load libraries
-
-```{r , echo = FALSE}
+Set up: Load Libraries
+```{r , echo= FALSE}
 library(tidyverse)
 ```
 
 ## Problem 1 
 
-```{r Problem 1, echo=TRUE}
+```{r problem 1.1, echo=TRUE}
 set.seed(123)
 
 data1 = tibble(
@@ -26,11 +24,16 @@ data1 = tibble(
   character = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
   levels = factor(c("green", "green", "green", "blue", "blue", "blue", "red", "red", "red", "red")))
 
+print(data1)
+```
+
+```{r problem 1.2, include= FALSE}
 mean(pull(data1,set))
 mean(pull(data1, as.numeric(nzero)))
 mean(pull(data1, as.numeric(character)))
 mean(pull(data1, as.numeric(levels)))
 ```
+
 The mean of the sample from the standard Normal distribution is 0.0373
 The mean of the elements greater than 0 is 0.5
 The mean of the character and factor vector cannot be determined because these are non numerical variables, and cannot be succesfully converted to numerical.
