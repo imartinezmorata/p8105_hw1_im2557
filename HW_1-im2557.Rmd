@@ -27,16 +27,16 @@ data1 = tibble(
 print(data1)
 ```
 
-```{r problem 1.2, include= FALSE}
+```{r problem 1.2, eval=FALSE}
 mean(pull(data1,set))
 mean(pull(data1, as.numeric(nzero)))
 mean(pull(data1, as.numeric(character)))
 mean(pull(data1, as.numeric(levels)))
 ```
 
-The mean of the sample from the standard Normal distribution is 0.0373
-The mean of the elements greater than 0 is 0.5
-The mean of the character and factor vector cannot be determined because these are non numerical variables, and cannot be succesfully converted to numerical.
+The mean of the sample from the standard Normal distribution (set) is 0.0373
+The mean of the elements greater than 0 (nzero) is 0.5
+The mean of the character and factor vector cannot be determined because these are non numerical variables, and cannot be successfully converted to numerical.
 
 
 ## Problem 2
@@ -45,7 +45,7 @@ The mean of the character and factor vector cannot be determined because these a
 library(palmerpenguins)
 ````
 
-```{r pressure, echo=TRUE}
+```{r pressure, echo=TRUE, warning=FALSE}
 data("penguins", package = "palmerpenguins")
 nrow(penguins)
 ncol(penguins)
@@ -55,7 +55,17 @@ plot1 <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color =
 
 ggsave("plot1.png")
 
+print(plot1)
+
 ````
+
+
+
+
+
+
+## Problem 2 elaboration
+
 The penguins dataset is composed of 344 observations across 8 different variables. There are 3 categorical variables: species, island and sex; and 5 numeric variables: bill_lenght_mm, bill_depth_mm, flipper_length_mm, body_mass_g, and year. 
 The observations colleceted data on 3 different categories of species (Ade, Gen, Chi), and 3 different islands (Bis, Dre, Tor). 168 penguins were male and 165 were females.
 The mean flipper length is 201 millimeters, the mean body mass was 4202 grams, the mean bill lenght and depth were 43.9 and 17.2 millimiters respectively. 
